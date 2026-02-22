@@ -2,7 +2,7 @@ import gymnasium as gym
 from collections import deque
 import numpy as np
 import matplotlib.pyplot as plt
-from dev_PIDController import PIDController
+from PIDController import PIDController
 
 # =================================================================
 # 1. Simulation Execution
@@ -10,7 +10,7 @@ from dev_PIDController import PIDController
 # Create CartPole environment and POSITION ONLY controller
 env = gym.make('CartPole-v1', render_mode='human')
 dt = 1.0 / 50.0
-pid_x = PIDController(kp=2.0, ki=0.0, kd=0.0, dt=dt)     # Cart position PID only
+pid_x = PIDController(kp=0.0, ki=0.0, kd=0.0, dt=dt)     # Cart position PID only
 
 env.x_threshold = 4.0           # Wider cart bounds (±4.0m)
 env.theta_threshold_radians = 0.418  # Wider angle (±24°)
